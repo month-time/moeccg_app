@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        必要时在以下 META 标记中自定义内容安全策略。将 "unsafe-inline" 添加到 default-src 以启动内联 JavaScript。
+      有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src *;connect-src *;script-src *; media-src * ;img-src *">-->    
+        <meta http-equiv="Content-Security-Policy" content="default-src  *">   
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script type="text/javascript" src="scripts/angular.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery-3.2.0.min.js"></script>
+        <title>C.G.Anime</title>
+    </head>
+    <body>           
+        <div id="deviceready">
+
+            <div class="content">
+                <div class="act act_exce">
+                    <h1 id="title">月時計</h1>
+                </div>
+                <div class="act act_two" style="">
+                    <div class="text_box">
+                        <h3>Там, на границе обмана</h3>
+                        <p>梦与现实交界</p>
+                        <p>Полети туда, где поёт душа(Poleti tuda, gde poyot dusha)</p>
+                        <p>Жизнь тебе дала снова два крыла(Zhizn' tebe dala snova dva kryla)</p>
+                    </div>
+                </div>
+                <div class="act act_three">
+                    <div class="left_list">
+                        <ul>
+                            <li><a href="javascript:void(0)">Home</a></li>
+                            <li><a href="javascript:void(0)">哔哩哔哩</a></li>
+                            <li><a href="javascript:void(0)">Acfun文章</a></li>
+                            <li><a href="javascript:void(0)">Pixiv国际周榜</a></li>
+                            <li><a href="javascript:void(0)">近期漫展</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="http://blog.moeccg.com">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="act act_four" ng-app="myApp" ng-controller="myCtrl">
+                    <div class="bilibili">
+                        <div class="bili_new">
+                            <h2 class="line_title">哔哩哔哩</h2>
+                            <div class="bili_new_box">
+                                <div class="bili_new_team" ng-repeat="x in bili_news.data | limitTo:8">
+                                    <a href="http://www.bilibili.com/video/av{{x.aid}}/">
+                                        <div class="team_pic">
+                                            <img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.pic}}" alt="">
+                                        </div>
+                                        <p class="team_title">{{x.title}}</p>
+                                        <p class="team_num">
+                                            <span class="team_play"><i class="icon"></i>{{x.play}}</span>
+                                            <span class="team_danmu"><i class="icon"></i>{{x.video_review}}</span>
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+
+                        <div class="comic">
+                            <h2 class="line_title">新番</h2>
+                            <div class="tab-block" id="tab-block">
+                                <ul class="tab-mnu">
+                                    <li class="active">星期日</li>
+                                    <li>星期一</li>
+                                    <li>星期二</li>
+                                    <li>星期三</li>
+                                    <li>星期四</li>
+                                    <li>星期五</li>
+                                    <li>星期六</li>
+                                </ul>
+                                <div class="tab-cont">
+                                    <div class="tab-pane">
+                                        <div class="comic_team" ng-repeat="x in anime_list.animes_0 ">
+                                            <div class="comic_cover"><img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.square_cover}}" alt=""></div>
+                                            <a href="http://bangumi.bilibili.com/anime/{{x.season_id}}"><p>{{x.title}}</p></a>
+                                            <p class="bgmcount"><span>{{x.bgmcount}}</span></p>
+                                            <div style="clear:both;border:1px solid pink;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane">
+                                        <div class="comic_team" ng-repeat="x in anime_list.animes_1 ">
+                                            <div class="comic_cover"><img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.square_cover}}" alt=""></div>
+                                            <a href="http://bangumi.bilibili.com/anime/{{x.season_id}}"><p>{{x.title}}</p></a>
+                                            <p class="bgmcount"><span>{{x.bgmcount}}</span></p>
+                                            <div style="clear:both;border:1px solid pink;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane">
+                                        <div class="comic_team" ng-repeat="x in anime_list.animes_2 ">
+                                            <div class="comic_cover"><img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.square_cover}}" alt=""></div>
+                                            <a href="http://bangumi.bilibili.com/anime/{{x.season_id}}"><p>{{x.title}}</p></a>
+                                            <p class="bgmcount"><span>{{x.bgmcount}}</span></p>
+                                            <div style="clear:both;border:1px solid pink;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane">
+                                        <div class="comic_team" ng-repeat="x in anime_list.animes_3 ">
+                                            <div class="comic_cover"><img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.square_cover}}" alt=""></div>
+                                            <a href="http://bangumi.bilibili.com/anime/{{x.season_id}}"><p>{{x.title}}</p></a>
+                                            <p class="bgmcount"><span>{{x.bgmcount}}</span></p>
+                                            <div style="clear:both;border:1px solid pink;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane">
+                                        <div class="comic_team" ng-repeat="x in anime_list.animes_4 ">
+                                            <div class="comic_cover"><img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.square_cover}}" alt=""></div>
+                                            <a href="http://bangumi.bilibili.com/anime/{{x.season_id}}"><p>{{x.title}}</p></a>
+                                            <p class="bgmcount"><span>{{x.bgmcount}}</span></p>
+                                            <div style="clear:both;border:1px solid pink;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane">
+                                        <div class="comic_team" ng-repeat="x in anime_list.animes_5 ">
+                                            <div class="comic_cover"><img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.square_cover}}" alt=""></div>
+                                            <a href="http://bangumi.bilibili.com/anime/{{x.season_id}}"><p>{{x.title}}</p></a>
+                                            <p class="bgmcount"><span>{{x.bgmcount}}</span></p>
+                                            <div style="clear:both;border:1px solid pink;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane">
+                                        <div class="comic_team" ng-repeat="x in anime_list.animes_6 ">
+                                            <div class="comic_cover"><img src="http://www.moeccg.com:3000/get_bili_img?img_url={{x.square_cover}}" alt=""></div>
+                                            <a href="http://bangumi.bilibili.com/anime/{{x.season_id}}"><p>{{x.title}}</p></a>
+                                            <p class="bgmcount"><span>{{x.bgmcount}}</span></p>
+                                            <div style="clear:both;border:1px solid pink;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear:both;"></div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="acfun">
+                        <h2 class="line_title">Acfun文章</h2>
+                        <div class="acfun_area" ng-repeat="x in acfun | limitTo:10">
+                            <a href="http://www.acfun.tv{{x.url}}">
+                                <div class="acfun_term">
+                                    <p class="acfun_title">{{x.title}}</p>
+                                    <hr>
+                                    <div class="acfun_click">热度：{{x.views}} </div>
+                                    <div class="acfun_date">时间：{{x.releaseDate}} </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="pixiv">
+                        <div class="for_Line"></div>
+                        <h2 class="line_title">Pixiv国际周榜</h2>
+                        <div class="pixiv_area">
+                            <a href="{{x.url}}" ng-repeat="x in pixiv_put.works track by $index">
+                                <div class="pixiv_term">
+                                    <img src="{{x.image}}" alt="">
+                                    <p class="pixiv_title">{{x.title}}</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="getmore_btn"><a ng-click='getmore()' href="javascript:void(0)" id="paper_raise_btn" class="btn paper paper-raise">get more</a></div>
+                    </div>
+                    <div class="coshow">
+                        <div class="for_Line"></div>
+                        <h2 class="line_title">近期漫展</h2>
+                        <div class="coshow_area">
+                            <div class="coshow_term" ng-repeat="x in coshow.manzhan_list | limitTo:10">
+                                <div class="coshow_term_box">
+                                    <img src="http://www.moeccg.com:3000/get_coshow_img?img_url={{x.img}}" alt="">
+                                    <div class="coshow_term_img">
+                                        <p class="coshow_term_addres">{{x.address}}</p>
+                                        <p class="coshow_term_time">{{x.time}}</p>
+                                    </div>
+                                </div>
+                                <p class="coshow_title">{{x.title}}</p>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="link">
+                            <a class="bottomLink" href="http://blog.moeccg.com" target="_blank">关于我们</a><i>|</i><a href="/help.html" class="bottomLink" target="_blank">帮助</a><i>|</i><a href="/contact.html" class="bottomLink" target="_blank">联系我们</a><i>|</i><a href="/friend.html" class="bottomLink" target="_blank">友情链接</a>
+                        </div>
+                        <p class="link line-2">
+                            Email：<a class="bottomLink" href="mailto:month_time@outlook.com">month_time@outlook.com</a>
+                        </p>
+                        <p class="link line-3">
+                            moeccg - 导航你的二次元生活！
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        <script>
+            window.onerror = function (msg, url, line) {
+                var idx = url.lastIndexOf("/");
+                if (idx > -1) {
+                    url = url.substring(idx + 1);
+                }
+                alert("ERROR in " + url + " (line #" + line + "): " + msg);
+                return false;
+            };</script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+</html>
